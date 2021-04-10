@@ -36,8 +36,8 @@ impl LoginService {
 
     pub async fn try_login(
         pool: &Pool<Sqlite>,
-        username: String,
-        password: String,
+        username: &str,
+        password: &str,
     ) -> Result<String, ()> {
         let user = sqlx::query("SELECT FROM users WHERE username = ?")
             .bind(username)
